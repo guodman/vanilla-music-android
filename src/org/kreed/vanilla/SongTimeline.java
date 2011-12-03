@@ -506,6 +506,11 @@ public final class SongTimeline {
 
 		return song;
 	}
+	
+	public ArrayList<Song> getAllSongs()
+	{
+		return mSongs;
+	}
 
 	/**
 	 * Shift the current song by <code>delta</code> places.

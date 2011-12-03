@@ -45,11 +45,12 @@ THE SOFTWARE.
 		</activity>
 		<activity
 			android:name="FullPlaybackActivity"
-			android:theme="@style/NoBackground"
 			android:launchMode="singleTop" />
 		<activity
 			android:name="LibraryActivity"
-			android:theme="@style/NoTitle"
+			android:launchMode="singleTop" />
+		<activity
+			android:name="PlayQueueActivity"
 			android:launchMode="singleTop" />
 		<activity
 			android:name="PlaylistActivity"

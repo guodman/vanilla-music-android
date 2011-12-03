@@ -351,6 +351,7 @@ public class PlaybackActivity extends Activity
 	static final int MENU_LIBRARY = 3;
 	static final int MENU_PLAYBACK = 5;
 	static final int MENU_SEARCH = 7;
+	static final int MENU_PLAYQUEUE = 8;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)

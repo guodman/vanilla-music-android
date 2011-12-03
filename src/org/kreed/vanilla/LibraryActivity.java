@@ -805,7 +805,9 @@ public class LibraryActivity
 	{
 		menu.addSubMenu(0, MENU_SORT, 0, R.string.sort_by).setIcon(R.drawable.ic_menu_sort_alphabetically);
 		menu.add(0, MENU_SEARCH, 0, R.string.search).setIcon(R.drawable.ic_menu_search);
-		menu.add(0, MENU_PLAYBACK, 0, R.string.playback_view).setIcon(R.drawable.ic_menu_gallery);
+		menu.add(0, MENU_PLAYBACK, 0, R.string.playback_view).setIcon(R.drawable.ic_menu_gallery).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+		menu.add(0, PlaybackActivity.MENU_LIBRARY, 0, R.string.library).setIcon(R.drawable.ic_menu_music_library).setEnabled(false).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+		menu.add(0, PlaybackActivity.MENU_PLAYQUEUE, 0, "Play Queue").setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -825,6 +827,10 @@ public class LibraryActivity
 			return true;
 		case MENU_PLAYBACK:
 			openPlaybackActivity();
+			return true;
+		case MENU_PLAYQUEUE:
+			Intent intent = new Intent(this, PlayQueueActivity.class);
+			startActivity(intent);
 			return true;
 		case MENU_SORT: {
 			MediaAdapter adapter = (MediaAdapter)mCurrentAdapter;

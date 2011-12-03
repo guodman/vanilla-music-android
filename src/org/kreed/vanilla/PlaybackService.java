@@ -1467,4 +1467,8 @@ public final class PlaybackService extends Service
 		notification.contentIntent = mNotificationAction;
 		return notification;
 	}
+
+	public SongTimeline getSongList() {
+		return mTimeline;
+	}
 }

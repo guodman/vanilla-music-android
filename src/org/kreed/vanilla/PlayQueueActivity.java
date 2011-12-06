@@ -30,7 +30,13 @@ public class PlayQueueActivity extends Activity {
 		SongTimeline songs = PlaybackService.get(this).getSongList();
 		for (Song s : songs.getAllSongs()) {
 			TextView songView = new TextView(this);
-			songView.setText(new StringBuilder(s.artist).append(" - ").append(s.title));
+			songView.setText(new StringBuilder(s.artist).
+					append(" [").
+					append(s.album).
+					append(" - ").
+					append(s.year).
+					append("] ").
+					append(s.title));
 			l.addView(songView);
 		}
 	}

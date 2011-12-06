@@ -455,7 +455,7 @@ public class MediaAdapter extends CursorAdapter implements SectionIndexer, Libra
 	public Object[] getSections()
 	{
 		if (mSortMode != 0)
-			return null;
+			return new String[0];
 		return mIndexer.getSections();
 	}
 

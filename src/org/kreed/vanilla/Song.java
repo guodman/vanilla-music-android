@@ -61,6 +61,7 @@ public class Song implements Comparable<Song> {
 		MediaStore.Audio.Media.ARTIST_ID,
 		MediaStore.Audio.Media.DURATION,
 		MediaStore.Audio.Media.TRACK,
+		MediaStore.Audio.Media.YEAR
 	};
 
 	public static final String[] EMPTY_PLAYLIST_PROJECTION = {
@@ -77,6 +78,7 @@ public class Song implements Comparable<Song> {
 		MediaStore.Audio.Playlists.Members.ARTIST_ID,
 		MediaStore.Audio.Playlists.Members.DURATION,
 		MediaStore.Audio.Playlists.Members.TRACK,
+		MediaStore.Audio.Playlists.Members.YEAR
 	};
 
 	/**
@@ -128,6 +130,11 @@ public class Song implements Comparable<Song> {
 	 * The position of the song in its album.
 	 */
 	public int trackNumber;
+	
+	/**
+	 * The year of the song
+	 */
+	public int year;
 
 	/**
 	 * Song flags. Currently FLAG_RANDOM or 0.
@@ -183,6 +190,7 @@ public class Song implements Comparable<Song> {
 		artistId = cursor.getLong(6);
 		duration = cursor.getLong(7);
 		trackNumber = cursor.getInt(8);
+		year = cursor.getInt(9);
 	}
 
 	/**
@@ -258,6 +266,8 @@ public class Song implements Comparable<Song> {
 	{
 		if (albumId == other.albumId)
 			return trackNumber - other.trackNumber;
+		if (artistId == other.artistId)
+			return other.year - year;
 		if (albumId > other.albumId)
 			return 1;
 		return -1;
